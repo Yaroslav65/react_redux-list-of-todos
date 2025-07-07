@@ -22,7 +22,7 @@ export const App = () => {
       <div className="section">
         <div className="container">
           <div className="box">
-            {todos.length > 0 ? (
+            {Array.isArray(todos) && todos.length > 0 ? (
               <>
                 <h1 className="title">Todos:</h1>
                 <div className="block">

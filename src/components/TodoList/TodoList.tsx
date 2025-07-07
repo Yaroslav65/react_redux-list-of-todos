@@ -31,11 +31,9 @@ export const TodoList: React.FC = () => {
     return todo.title.toLowerCase().includes(normalizedQuery);
   });
 
-  const todoTitle = filteredTodos.find(todo => todo.title);
-
   return (
     <>
-      {!todoTitle?.title.toLowerCase().includes(normalizedQuery) ? (
+      {filteredTodos.length === 0 ? (
         <p className="notification is-warning">
           There are no todos matching current filter criteria
         </p>
