@@ -1,10 +1,27 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Todo } from '../types/Todo';
 
+type TodosState = {
+  todos: Todo[];
+  loading: boolean;
+  error: string;
+};
+
+const initialState: TodosState = {
+  todos: [] as Todo[],
+  loading: false,
+  error: '',
+};
+
 export const todosSlice = createSlice({
   name: 'todos',
-  initialState: [] as Todo[],
+  initialState,
   reducers: {
-    setTodos: (_, actions: PayloadAction<Todo[]>) => actions.payload,
+    setLoading: (state, actions: PayloadAction<boolean>) => {
+      state.loading = actions.payload;
+    },
+    setTodos: (state, actions: PayloadAction<Todo[]>) => {
+      state.todos = actions.payload;
+    },
   },
 });

@@ -5,7 +5,7 @@ import { Todo } from '../../types/Todo';
 /* eslint-disable */
 export const TodoList: React.FC = () => {
   const dispatch = useDispatch();
-  const todos = useAppSelector(state => state.todos);
+  const todos = useAppSelector(state => state.todos.todos);
   const filters = useAppSelector(state => state.filter);
   const currentTodo = useAppSelector(state => state.currentTodo);
 
